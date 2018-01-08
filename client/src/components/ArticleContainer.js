@@ -13,11 +13,6 @@ class ArticleContainer extends Component {
         search: ""
     };
 
-    // When this component mounts, search for the movie "The Matrix"
-    // componentDidMount() {
-    //   this.searchArticles("NBA");
-    // }
-
     searchArticles = query => {
         API.search(query)
             .then(res => this.setState({ result: res.data }))
@@ -42,7 +37,6 @@ class ArticleContainer extends Component {
         return (
             <Container>
                 <Row>
-
                     <Col size="md-4">
                         <Panel heading="Search">
                             <Search
@@ -52,7 +46,6 @@ class ArticleContainer extends Component {
                             />
                         </Panel>
                     </Col>
-
                     <Col size="md-8">
                         <Panel
                             headline={this.state.result.headline || "Results"}
@@ -60,6 +53,7 @@ class ArticleContainer extends Component {
                             {this.state.result.headline
                                 ? <ArticleDetail
                                     url={this.state.result.web_url}
+                                    date={this.state.result.date}
                                     id={this.state.result.id}
                                 />
                                 : <h3>No Results to Display</h3>}

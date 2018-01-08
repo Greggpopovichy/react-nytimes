@@ -1,9 +1,10 @@
 import React from "react";
 
-const Search = props =>
+const Search = props => {
+
+return (
     <form>
         <div className="form-group">
-            <label htmlFor="search">Search:</label>
             <input
                 onChange={props.handleInputChange}
                 value={props.value}
@@ -12,12 +13,32 @@ const Search = props =>
                 className="form-control"
                 placeholder="Search for an article"
                 id="search"
+            /><br/>
+            <input
+                onChange={props.handleInputChange}
+                value={props.value}
+                name="startYear"
+                type="text"
+                className="form-control"
+                placeholder="start year"
+                id="startYear"
+            /><br/>
+            <input
+                onChange={props.handleInputChange}
+                value={props.value}
+                name="endYear"
+                type="text"
+                className="form-control"
+                placeholder="end year"
+                id="endYear"
             />
-            <br />
+            <br/>
             <button onClick={props.handleFormSubmit} className="btn btn-primary">
                 Search
             </button>
         </div>
-    </form>;
+    </form>
+)
+};
 
 export default Search;
